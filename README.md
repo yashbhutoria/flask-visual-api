@@ -20,7 +20,7 @@ On Linux
 source .env/bin/activate
 ```
 On Windows PowerShell
-```bash
+```
 .env/bin/activate.ps1
 ```
 
@@ -30,7 +30,6 @@ python3 -m pip install -r requirements.txt
 ```
 
 ### Running the Server
-On Linux
 ```bash
 python3 app.py
 ```
