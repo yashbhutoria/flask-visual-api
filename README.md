@@ -7,7 +7,7 @@ The visulaisations
 ### Cloning The Repo
 ```bash
 git clone https://github.com/yashbhutoria/flask-visual-api.git
-cd
+cd flask-visual-api
 ```
 ### Creating Virtual Environment
 ```bash
