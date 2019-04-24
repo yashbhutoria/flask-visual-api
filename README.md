@@ -2,4 +2,40 @@
 A number of APIs hosted on a flask server that returns visualisations.
 The visulaisations
 
-[Usage Instructions](API_Docs.md)
+## Installation
+
+### Cloning The Repo
+```bash
+git clone https://github.com/yashbhutoria/flask-visual-api.git
+cd
+```
+### Creating Virtual Environment
+```bash
+python3 -m virtualenv .env --no-site-packages
+```
+
+### Activating Environment
+On Linux
+```bash
+source .env/bin/activate
+```
+On Windows PowerShell
+```bash
+.env/bin/activate.ps1
+```
+
+### Installing Dependencies
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+### Running the Server
+On Linux
+```bash
+python3 app.py
+```
+
+## Usage
+
+[API Documentation](API_Docs.md)
+
