@@ -7,7 +7,7 @@ The visulaisations
 
 #### Endpoint
 ```
-/graph
+POST /graph
 ```
 
 #### Sample Payload
@@ -35,7 +35,7 @@ The visulaisations
 plots bar graph for the given schema
 #### Endpoint
 ```
-/lineplot
+POST /lineplot
 ```
 #### Sample Payload
 ```json
@@ -65,7 +65,7 @@ plots bar graph for the given schema
 plots bar graph for the given schema
 #### Endpoint
 ```
-/multibar
+POST /multibar
 ```
 #### Sample Payload
 ```json
