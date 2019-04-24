@@ -10,6 +10,7 @@ app = Flask(__name__)
 
 PALLETE = 'Set2'
 
+
 @app.route('/graph', methods=["POST"])
 def bar_graph():
     meta = request.json['metadata']
@@ -40,6 +41,7 @@ def line_plot():
     plt.clf()
     return base64.b64encode(open('lineplot.png', 'rb').read())
 
+
 @app.route('/multibar', methods=["POST"])
 def multi_bar():
     meta = request.json['metadata']
@@ -58,9 +60,11 @@ def multi_bar():
     plt.clf()
     return base64.b64encode(open('multibar.png', 'rb').read())
 
+
 @app.route('/')
 def home():
     return "Working"
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
