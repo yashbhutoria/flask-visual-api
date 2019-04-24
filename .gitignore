@@ -9,6 +9,9 @@ __pycache__/
 # Png Dumps
 *.png
 
+# VSCode dir
+.vscode/
+
 # Distribution / packaging
 .Python
 build/
