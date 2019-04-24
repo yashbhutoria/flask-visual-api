@@ -10,8 +10,7 @@ The visulaisations
 /graph
 ```
 
-plots bar graph for the given schema
-
+#### Sample Payload
 ```json
 {
     "metadata": {
@@ -29,6 +28,8 @@ plots bar graph for the given schema
     ]
 }
 ```
+#### Resulting Image
+![BarGraph](/samples/graph.png)
 
 ## 2. LinePlot
 plots bar graph for the given schema
@@ -36,7 +37,7 @@ plots bar graph for the given schema
 ```
 /lineplot
 ```
-
+#### Sample Payload
 ```json
 {
     "metadata": {
@@ -57,13 +58,16 @@ plots bar graph for the given schema
     }
 }
 ```
+#### Resulting Image
+![BarGraph](/samples/lineplot.png)
+
 ## 3. MultiBar Plot
 plots bar graph for the given schema
 #### Endpoint
 ```
 /multibar
 ```
-
+#### Sample Payload
 ```json
 {
     "metadata": {
@@ -84,3 +88,5 @@ plots bar graph for the given schema
     }
 }
 ```
+#### Resulting Image
+![BarGraph](/samples/multibar.png)
