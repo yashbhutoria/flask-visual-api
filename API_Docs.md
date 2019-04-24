@@ -1,3 +1,6 @@
+# Note
+APIs returns png image as a base64 string
+
 # Available APIs
 ## 1. BarGraph
 
