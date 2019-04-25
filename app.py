@@ -36,7 +36,6 @@ def line_plot():
     plt.xticks(rotation=45)
     plt.xlabel(meta['X'])
     plt.ylabel(meta['Y'])
-    plt.figure(figsize=(6, 6))
     plt.tight_layout()
     plot.figure.savefig('lineplot.png')
     plt.clf()
@@ -49,7 +48,6 @@ def multi_bar():
     df = pd.DataFrame.from_records(request.json['data'])
     df.reset_index(inplace=True, level=0)
     df = df.melt(id_vars=['index'], var_name="line")
-    plt.figure(figsize=(6, 6))
     sns.set_style("darkgrid", {"axes.facecolor": "0.9"})
     plot = sns.barplot(data=df, hue='line', x='index',
                        y='value', palette=PALLETE)
