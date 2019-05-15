@@ -23,7 +23,8 @@ def bar_graph():
     plt.tight_layout()
     plot.figure.savefig('plot.png')
     plt.clf()
-    return base64.b64encode(open('plot.png', 'rb').read())
+    with open('plot.png', 'rb') as f:
+        return base64.b64encode(f.read())
 
 
 @app.route('/lineplot', methods=["POST"])
@@ -39,7 +40,8 @@ def line_plot():
     plt.tight_layout()
     plot.figure.savefig('lineplot.png')
     plt.clf()
-    return base64.b64encode(open('lineplot.png', 'rb').read())
+    with open('lineplot.png', 'rb') as f:
+        return base64.b64encode(f.read())
 
 
 @app.route('/multibar', methods=["POST"])
@@ -57,7 +59,26 @@ def multi_bar():
     plt.tight_layout()
     plot.figure.savefig('multibar.png')
     plt.clf()
-    return base64.b64encode(open('multibar.png', 'rb').read())
+    with open('multibar.png', 'rb') as f:
+        return base64.b64encode(f.read())
+
+
+@app.route('/scatter', methods=["POST"])
+def scatter():
+    meta = request.json['metadata']
+    df = pd.DataFrame.from_records(request.json['data'])
+    df.reset_index(inplace=True, level=0)
+    sns.set_style("darkgrid", {"axes.facecolor": "0.9"})
+    plot = sns.scatterplot(data=df, x='x',
+                           y='y', palette=PALLETE)
+    plt.xticks(rotation=45)
+    plt.xlabel(meta['X'])
+    plt.ylabel(meta['Y'])
+    plt.tight_layout()
+    plot.figure.savefig('scatter.png')
+    plt.clf()
+    with open('scatter.png', 'rb') as f:
+        return base64.b64encode(f.read())
 
 
 @app.route('/')

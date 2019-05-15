@@ -89,3 +89,43 @@ POST /multibar
 ```
 #### Resulting Image
 ![BarGraph](/samples/multibar.png)
+
+## 4. Scatter Plot
+plots scatter plot for the given schema
+#### Endpoint
+```
+POST /scatter
+```
+#### Sample Payload
+```json
+{
+    "metadata": {
+        "X": "XLabel",
+        "Y": "YLabel"
+    },
+    "data": [
+        {
+            "x": 12,
+            "y": 23
+        },
+        {
+            "x": 14,
+            "y": 33
+        },
+        {
+            "x": 16,
+            "y": 43
+        },
+        {
+            "x": 18,
+            "y": 30
+        },
+        {
+            "x": 20,
+            "y": 40
+        }
+    ]
+}
+```
+#### Resulting Image
+![ScatterPlot](/samples/scatter.png)
