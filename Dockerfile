@@ -1,18 +1,10 @@
-FROM ubuntu:16.04
-
-RUN apt-get update -y && apt-get install -y python3-pip python3-dev
-
-# We copy just the requirements.txt first to leverage Docker cache
-COPY ./requirements.txt /app/requirements.txt
-
-WORKDIR /app
-
-RUN pip3 install -r requirements.txt
-
-COPY . /app
-
+FROM python:3
+RUN git clone https://github.com/yashbhutoria/flask-visual-api.git
+COPY flask-visual-api /usr/src
+RUN cd /usr/src
+RUN python3 -m pip install -r /usr/src/requirements.txt
+RUN python3 /usr/src/app.py
+EXPOSE 80
 ENTRYPOINT [ "python3" ]
+CMD [ "/usr/src/app.py" ]
 
-CMD [ "app.py" ]
-
-EXPOSE 5000
