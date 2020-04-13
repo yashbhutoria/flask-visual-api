@@ -1,6 +1,7 @@
 import base64
 import json
-
+import matplotlib as mpl
+mpl.use('Agg')
 import markdown.extensions.fenced_code
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -8,7 +9,7 @@ import requests
 import seaborn as sns
 from flask import Flask, request
 from pygments.formatters import HtmlFormatter
-from custom_visuals import ordered_funnel_plot
+from custom_visuals import funnel_plot
 from waitress import serve
 
 app = Flask(__name__)
@@ -126,18 +127,19 @@ def bar_plot_month():
     with open('plot.png', 'rb') as f:
         return base64.b64encode(f.read())
 
-@app.route("/ordered_funnel", methods=["POST"])
+@app.route("/funnel", methods=["POST"])
 def ordered_funnel():
     df = pd.DataFrame.from_records(request.json["data"])
-    fig = ordered_funnel_plot(df, x='value', y='segment')
-    fig.savefig('ordered_funnel.png')
+    fig = funnel_plot(df,x='value',y='segment')
+    plt.tight_layout()
+    fig.savefig('funnel.png')
     plt.clf()
-    with open("ordered_funnel.png", "rb") as f:
+    with open("funnel.png", "rb") as f:
         return base64.b64encode(f.read())
 
 
-@app.route("/")
-def index():
+@app.route("/docs")
+def docs():
     readme_file = open("API_Docs.md", "r")
     md_template_string = markdown.markdown(
         readme_file.read(), extensions=["fenced_code", "codehilite"]
@@ -147,6 +149,10 @@ def index():
     md_css_string = "<style>" + css_string + "</style>"
     md_template = md_css_string + md_template_string
     return md_template
+
+@app.route("/")
+def index():
+    return "working"
 
 
 if __name__ == "__main__":
